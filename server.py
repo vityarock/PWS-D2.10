@@ -4,8 +4,9 @@ import os
 from bottle import route, run, error
 from sentry_sdk.integrations.bottle import BottleIntegration
 from sentry_sdk import capture_exception, capture_message
+from my_dsn import dsn
 
-sentry_sdk.init(dsn="https://8658c9f1ce404fb28fd7c01a9dd66897@o552959.ingest.sentry.io/5679508", integrations = [BottleIntegration()])
+sentry_sdk.init(dsn = dsn, integrations = [BottleIntegration()])
 
 @route("/")
 def default_page():
